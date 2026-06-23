@@ -8,7 +8,7 @@
         <style>
             :root{
                 --primary:#2563eb;
-                --success:#16034a;
+                --success:#ADD439;
                 --warning:#f59e0b;
                 --danger:#dc2626;
                 --dark:#1f2937;
@@ -134,140 +134,196 @@
             }
 
             th{
-                background: #f9fafb;
+                background: var(--primary);
+                color:white;
+                text-align: left;
+                padding: 12px;
             }
+            td{
+                padding: 12px;
+                border-bottom: 1px solid #e5e7eb;
+            }
+            .panel-title{
+                margin-bottom: 15px;
+                color: #111827;
+            }
+            table{
+                width:100%;
+                border-collapse: collapse;
+            }
+            .status{
+                padding: 5px 10px;
+                border-radius: 20px;
+                color: white;
+                font-size: 12px;
+            }
+            .pago{
+                background: var(--success);
+            }
+            .pendente{
+                background: var(--warning);
+            }
+            .cancelado{
+                background: var(--danger);
+            }
+            .stock-low{
+                color: var(--danger);
+                font-weight: bold;
+            }
+            .stock-ok{
+                color: var(--success);
+                font-weight: bold;
+            }
+            
+            @media(max-width:768px) {
+                .sidebar{
+                    width: 100%;
+                    height: auto;
+                    position: relative;
+                }
+                .main{
+                    margin-left: 0;
+                    width: 100%;
+                }
+                body{
+                    flex-direction: column;
+                }
+            }
+            
         </style>
     </head>
 
-    <body>
+        <body>
 
-    <div class="sidebar">
-        <div class="logo">MetaSteel</div>
-        <ul class="menu">
-            <li>Dashboard</li>
-            <li class="active">Vendas</li>
-            <li>Estoque</li>
-            <li>Compras</li>
-            <li>Financeiro</li>
-            <li>Clientes</li>
-            <li>Relatório</li>
-        </ul>
-    </div>
-
-    <div class="main">
-
-        <div class="header">
-            <h1>Vendas e Estoque</h1>
-            <div class="user">Administrador</div>
+        <div class="sidebar">
+            <div class="logo">MetaSteel</div>
+            <ul class="menu">
+                <li>Dashboard</li>
+                <li class="active">Vendas</li>
+                <li>Estoque</li>
+                <li>Compras</li>
+                <li>Financeiro</li>
+                <li>Clientes</li>
+                <li>Funcionarios</li>
+            </ul>
         </div>
 
-        <div class="cards">
-            <div class="card">
-                <h3>Faturamento Mensal</h3>
-                <div class="value blue">R$125.800</div>
+        <div class="main">
+
+            <div class="header">
+                <h1>Vendas e Estoque</h1>
+                <div class="user">Administrador</div>
             </div>
 
-            <div class="card">
-                <h3>Pedidos</h3>
-                <div class="value green">842</div>
+            <div class="cards">
+                <div class="card">
+                    <h3>Faturamento Mensal</h3>
+                    <div class="value blue">R$125.800</div>
+                </div>
+
+                <div class="card">
+                    <h3>Pedidos</h3>
+                    <div class="value green">842</div>
+                </div>
+
+                <div class="card">
+                    <h3>Produtos em Estoque</h3>
+                    <div class="value orange">4.320</div>
+                </div>
+
+                <div class="card">
+                    <h3>Itens Críticos</h3>
+                    <div class="value red">18</div>
+                </div>
             </div>
 
-            <div class="card">
-                <h3>Produtos em Estoque</h3>
-                <div class="value orange">4.320</div>
+            <div class="panel">
+                <h2>Últimas vendas</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Pedido</th>
+                            <th>Cliente</th>
+                            <th>Valor</th>
+                            <th>Data</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>#1025</td>
+                            <td>Mercado Alfa</td>
+                            <td>R$3.500</td>
+                            <td>12/06/2026</td>
+                            <td><span class="status pago">Pago</span></td>
+                        </tr>
+                        <tr>
+                            <td>#1026</td>
+                            <td>Loja Beta</td>
+                            <td>R$1.850</td>
+                            <td>13/06/2026</td>
+                            <td><span class="status pendente">Pendente</span></td>
+                        </tr>
+                        <tr>
+                            <td>#1027</td>
+                            <td>Empresa Delta</td>
+                            <td>R$5.700</td>
+                            <td>14/06/2026</td>
+                            <td><span class="status cancelado">Pago</span></td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
 
-            <div class="card">
-                <h3>Itens Críticos</h3>
-                <div class="value red">18</div>
-            </div>
-        </div>
-
-        <div class="panel">
-            <h2>Últimas vendas</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Pedido</th>
-                        <th>Cliente</th>
-                        <th>Valor</th>
-                        <th>Data</th>
-                        <th>Status</th>
-                    </tr>
+            <div class="panel">
+                <h2>Controle de Estoque</h2>
+                <table>
+                    <thead>
+                        <tr>
+                <th>Código</th>
+                <th>Produto</th>
+                <th>Categoria</th>
+                <th>Quantidade</th>
+                <th>Situação</th>
+            </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td>#1025</td>
-                        <td>Mercado Alfa</td>
-                        <td>R$3.500</td>
-                        <td>12/06/2026</td>
-                        <td>Pago</td>
-                    </tr>
-                    <tr>
-                        <td>#1026</td>
-                        <td>Loja Beta</td>
-                        <td>R$1.850</td>
-                        <td>13/06/2026</td>
-                        <td>Pendente</td>
-                    </tr>
-                    <tr>
-                        <td>#1027</td>
-                        <td>Empresa Delta</td>
-                        <td>R$5.700</td>
-                        <td>14/06/2026</td>
-                        <td>Pago</td>
-                    </tr>
-                </tbody>
-            </table>
+
+                    <tbody>
+                        <tr>
+                            <td>P001</td>
+                            <td>Notebook Dell</td>
+                            <td>Informática</td>
+                            <td>35</td>
+                            <td class="stock-ok">Normal</td>
+                        </tr>
+
+                        <tr>
+                            <td>P002</td>
+                            <td>Monitor LG 24</td>
+                            <td>Informática</td>
+                            <td>8</td>
+                            <td class="stock-ok">Baixo</td>
+                        </tr>
+
+                        <tr>
+                            <td>P003</td>
+                            <td>Mouse Wireless</td>
+                            <td>Acessórios</td>
+                            <td>120</td>
+                            <td class="stock-ok">Normal</td>
+                        </tr>
+
+                        <tr>
+                            <td>P004</td>
+                            <td>Teclado Mecânico</td>
+                            <td>Acessórios</td>
+                            <td>4</td>
+                            <td class="stock-low">Reposição Urgente</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
-
-        <div class="panel">
-            <h2>Controle de Estoque</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Código</th>
-                        <th>Produto</th>
-                        <th>Categoria</th>
-                        <th>Quantidade</th>
-                        <th>Situação</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>P001</td>
-                        <td>Notebook Dell</td>
-                        <td>Informática</td>
-                        <td>35</td>
-                        <td>Normal</td>
-                    </tr>
-                    <tr>
-                        <td>P002</td>
-                        <td>Monitor LG 24</td>
-                        <td>Informática</td>
-                        <td>8</td>
-                        <td>Baixo</td>
-                    </tr>
-                    <tr>
-                        <td>P003</td>
-                        <td>Mouse Wireless</td>
-                        <td>Acessórios</td>
-                        <td>120</td>
-                        <td>Normal</td>
-                    </tr>
-                    <tr>
-                        <td>P004</td>
-                        <td>Teclado Mecânico</td>
-                        <td>Acessórios</td>
-                        <td>4</td>
-                        <td>Reposição Urgente</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-    </div>
-
 </body>
 </html>
 
