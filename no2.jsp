@@ -1,6 +1,6 @@
 <%-- 
-    Document   : no1
-    Created on : 25 de jun. de 2026, 19:43:12
+    Document   : no2.jsp
+    Created on : 25 de jun. de 2026, 19:55:36
     Author     : QI
 --%>
 
@@ -10,10 +10,16 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
+        <style>
+            .vermelho{
+                color: red;
+            }
+            
+        </style>
     </head>
     <body>
-        <%= "Olá turma da Noite!!!" %>
+        <%!int variavelValor=200; %>
         
-        Hora Atual:<%= java.util.Calendar.getInstance().getTime()%>
+        <h1 class="vermelho"><%=  "O Valor de uma variável que é :" +variavelValor%></h1>
     </body>
 </html>
